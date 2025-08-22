@@ -18,7 +18,7 @@ namespace FunctionFibonacci
         }
 
         [Function("Function1")]
-        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post",Route ="api/pokemon/{pokemonName}")] HttpRequest req, string pokemonName)
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",Route ="api/pokemon/{pokemonName}")] HttpRequest req, string pokemonName)
         {
             string baseUrl = Environment.GetEnvironmentVariable("POKE_API_BASE_URL");
             string url = String.Format($"{baseUrl}/{pokemonName}");
